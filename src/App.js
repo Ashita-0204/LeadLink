@@ -1,19 +1,26 @@
 import Home from "./screens/Home";
 import Signup from "./screens/Signup";
+import Dashboard from "./screens/Dashboard";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 function App() {
-  return (
-    <Router>
-      <div>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/createuser" element={<Signup />} />
-          <Route exact path="/dashboard" element={<dashboard />} />
-        </Routes>
-      </div>
-    </Router>
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/createuser" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Route>
+    )
   );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

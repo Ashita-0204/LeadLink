@@ -1,16 +1,17 @@
 import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { Dashboard } from "../components/tickets";
+import Default from "../components/Default";
 
-const dashboard = () => {
+const Dashboard = () => {
   return (
     <div>
       <div>
         <Header />
       </div>
-      <div></div>
-
+      <div>
+        <Default />
+      </div>
       <div>
         <Footer />
       </div>
@@ -18,4 +19,4 @@ const dashboard = () => {
   );
 };
 
-export default dashboard;
+export default Dashboard;
