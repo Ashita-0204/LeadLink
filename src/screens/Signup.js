@@ -10,7 +10,7 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3000/createuser", {
+    const response = await fetch("http://localhost:3001/api/createuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -108,7 +108,7 @@ export default function Signup() {
             Sign Up{" "}
           </button>
           <Link
-            to="/login"
+            to="/"
             className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all mt-4 block text-center"
           >
             Already a User{" "}

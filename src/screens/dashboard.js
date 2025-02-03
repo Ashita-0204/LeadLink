@@ -1,17 +1,15 @@
 import React from "react";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Card from "../components/Card";
+import Header from "../components/Header";
 
-export default function Home() {
+export default function dashboard() {
   return (
     <div>
       <div>
-        <Navbar />
+        <Header />
       </div>
-      <div>
-        <Card />
-      </div>
+      <div></div>
+
       <div>
         <Footer />
       </div>

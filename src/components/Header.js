@@ -13,7 +13,7 @@ export default function Navbar() {
                 to="/"
                 className="text-lg font-medium hover:text-gray-200 transition-colors"
               >
-                Home
+                Dashboard;
               </Link>
             </li>
             <li>
@@ -21,7 +21,15 @@ export default function Navbar() {
                 to="/createuser"
                 className="text-lg font-medium hover:text-gray-200 transition-colors"
               >
-                Signup
+                Tickets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/createuser"
+                className="text-lg font-medium hover:text-gray-200 transition-colors"
+              >
+                Logout
               </Link>
             </li>
           </ul>
