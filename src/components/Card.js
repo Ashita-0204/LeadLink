@@ -11,24 +11,36 @@ const LoginCard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3001/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials), // Sending correct data
-    });
 
-    const json = await response.json();
-    console.log(json);
+    try {
+      const response = await fetch("http://localhost:3001/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: credentials.email.trim(), // Trim spaces to avoid errors
+          password: credentials.password,
+        }),
+      });
 
-    if (!json.success) {
-      alert("Invalid credentials");
-    }
-    if (json.success) {
+      const json = await response.json();
+      console.log("Server Response:", json); // Debugging
+
+      if (!response.ok) {
+        alert(json.error || "Invalid credentials");
+        return;
+      }
+
+      // ✅ Store token in localStorage
       localStorage.setItem("authToken", json.authToken);
-      console.log(localStorage.getItem("authToken"));
+      console.log("Auth Token Saved:", localStorage.getItem("authToken"));
+
+      // ✅ Redirect to dashboard after successful login
       navigate("/dashboard");
+    } catch (error) {
+      console.error("Login Error:", error);
+      alert("Something went wrong. Please try again.");
     }
   };
 
@@ -88,7 +100,7 @@ const LoginCard = () => {
         </form>
         <p className="text-center text-sm text-gray-600 mt-6">
           Don’t have an account?{" "}
-          <Link to="/CreateUser" className="text-blue-500 hover:underline">
+          <Link to="/createuser" className="text-blue-500 hover:underline">
             Sign Up
           </Link>
         </p>

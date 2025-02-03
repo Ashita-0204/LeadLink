@@ -1,8 +1,9 @@
 import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { Dashboard } from "../components/tickets";
 
-export default function dashboard() {
+const dashboard = () => {
   return (
     <div>
       <div>
@@ -15,4 +16,6 @@ export default function dashboard() {
       </div>
     </div>
   );
-}
+};
+
+export default dashboard;

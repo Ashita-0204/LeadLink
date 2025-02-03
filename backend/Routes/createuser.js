@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const { body, validationResult } = require("express-validator");
-
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
 const jwtSecret = "MYPASSWORDISSECRET";
 router.post(
   "/CreateUser",
@@ -76,12 +76,12 @@ router.post(
         },
       };
 
-      const authToken = jwt.sign(data, jwtSecret);
+      const authToken = jwt.sign(data, jwtSecret, { expiresIn: "1h" });
 
       return res.json({ success: true, authToken: authToken });
     } catch (error) {
-      console.log(error);
-      res.json({ success: false });
+      console.error(error);
+      res.status(500).json({ success: false, error: "Internal Server Error" });
     }
   }
 );
