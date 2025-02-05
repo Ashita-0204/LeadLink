@@ -13,7 +13,7 @@ export default function Header() {
                 to="/landing"
                 className="text-lg font-medium hover:text-gray-200 transition-colors"
               >
-                Dashboard;
+                Dashboard
               </Link>
             </li>
             <li>
