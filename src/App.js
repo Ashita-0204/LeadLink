@@ -1,26 +1,22 @@
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./screens/Home";
 import Signup from "./screens/Signup";
-import Dashboard from "./screens/Dashboard";
-import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
+import Landing from "./screens/Landing";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AddTicket } from "./screens/AddTicket";
+
 function App() {
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route>
+  return (
+    <Router>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/createuser" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Route>
-    )
+        <Route path="/landing" element={<Landing />} />
+        <Route path="/tickets/add" element={<AddTicket />} />
+      </Routes>
+    </Router>
   );
-  return <RouterProvider router={router} />;
 }
 
 export default App;

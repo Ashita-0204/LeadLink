@@ -10,7 +10,7 @@ export default function Header() {
           <ul className="flex space-x-6">
             <li>
               <Link
-                to="/dashboard"
+                to="/landing"
                 className="text-lg font-medium hover:text-gray-200 transition-colors"
               >
                 Dashboard;
@@ -18,7 +18,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                to="/tickets"
+                to="/tickets/add"
                 className="text-lg font-medium hover:text-gray-200 transition-colors"
               >
                 Tickets

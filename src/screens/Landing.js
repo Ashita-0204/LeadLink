@@ -1,16 +1,16 @@
 import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Default from "../components/Default";
+import { Main } from "../components/Main";
 
-const Dashboard = () => {
+const Landing = () => {
   return (
     <div>
       <div>
         <Header />
       </div>
       <div>
-        <Default />
+        <Main />
       </div>
       <div>
         <Footer />
@@ -19,4 +19,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Landing;
