@@ -1,27 +1,34 @@
-[{
-    "id":1,
-    "status":"Client response pending",
-    "addedAt": "02-02-2025"
-},
-{
-    "id":2,
-    "status":"Client response pending",
-    "addedAt": "31-02-2025"
-},
-{
-    "id":3,
-    "status":"Client response pending",
-    "addedAt": "20-02-2025"
-},
-{
-    "id":4,
-    "status":"Client response pending",
-    "addedAt": "12-01-2025"
-},
-{
-    "id":5,
-    "status":"Client response pending",
-    "addedAt": "02-01-2025"
-}
-
-]
+[
+    {
+      "id": 1,
+      "subject": "Login Issue",
+      "status": "Open",
+      "addedAt": "2024-02-08"
+    },
+    {
+      "id": 2,
+      "subject": "Payment Failure",
+      "status": "Closed",
+      "addedAt": "2024-02-06"
+    },
+    {
+        "id": 1,
+        "subject": "Login Issue",
+        "status": "Open",
+        "addedAt": "2024-02-08"
+      },
+      {
+        "id": 2,
+        "subject": "Payment Failure",
+        "status": "Closed",
+        "addedAt": "2024-02-06"
+      } ,
+      {
+        "id": 1,
+        "subject": "Login Issue",
+        "status": "Open",
+        "addedAt": "2024-02-08"
+      }
+     
+  ]
+  
