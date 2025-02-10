@@ -3,13 +3,15 @@ import { Col, Container, Row, Button } from "react-bootstrap";
 import { PageBreadcrumb } from "../components/Breadcrumb";
 import SearchForm from "../components/SearchForm";
 import { TicketTable } from "../components/TicketTable";
-import { tickets } from "../assets/dummy-tickets.json";
+import tickets from "../assets/dummy-tickets.json";
 
 export const Ticketlist = () => {
   const [str, setStr] = useState("");
   const [dispTickets, setdispTickets] = useState(tickets);
 
-  useEffect(() => {}, [str, dispTickets]);
+  useEffect(() => {
+    console.log("Displayed Tickets:", dispTickets); // Debugging log
+  }, [dispTickets]);
 
   const handleOnChange = (e) => {
     const { value } = e.target;
@@ -17,13 +19,17 @@ export const Ticketlist = () => {
     searchTicket(value);
   };
 
-  const searchTicket = (sttr) => {
-    const displayTickets = tickets.filter((row) =>
-      row.subject.toLowerCase().includes(sttr.toLowerCase())
-    );
-
-    setdispTickets(displayTickets);
+  const searchTicket = (searchStr) => {
+    if (!searchStr) {
+      setdispTickets(tickets);
+    } else {
+      const filteredTickets = tickets.filter((ticket) =>
+        ticket.subject.toLowerCase().includes(searchStr.toLowerCase())
+      );
+      setdispTickets(filteredTickets);
+    }
   };
+
   return (
     <Container>
       <Row>
@@ -32,16 +38,18 @@ export const Ticketlist = () => {
         </Col>
       </Row>
 
-      <Row className="mt-4">
-        <Col>
+      <Row className="mt-4 d-flex align-items-center">
+        <Col md={4}>
           <Button variant="info">Add New Ticket</Button>
         </Col>
 
-        <Col className="text-right">
+        <Col md={8} className="d-flex justify-content-end">
           <SearchForm handleOnChange={handleOnChange} str={str} />
         </Col>
       </Row>
+
       <hr />
+
       <Row>
         <Col>
           <TicketTable tickets={dispTickets} />

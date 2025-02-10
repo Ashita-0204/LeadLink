@@ -1,31 +1,31 @@
 import React from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
-import { PropTypes } from "react-bootstrap/esm/Image";
+import { Form, InputGroup } from "react-bootstrap";
+import { Search } from "react-bootstrap-icons"; // Importing search icon
 
-export const SearchForm = ({ handleOnChange, str }) => {
+const SearchForm = ({ handleOnChange, str }) => {
   return (
-    <div>
-      <Form>
-        <Form.Group as={Row}>
-          <Form.Label column sm="2">
-            Search:{" "}
-          </Form.Label>
-          <Col sm="10">
-            <Form.Control
-              name="searchStr"
-              onChange={handleOnChange}
-              value={str}
-              placeholder="search.."
-            />
-          </Col>
-        </Form.Group>
-      </Form>
-    </div>
+    <Form>
+      <Form.Group>
+        <InputGroup>
+          <InputGroup.Text>
+            <Search />
+          </InputGroup.Text>
+          <Form.Control
+            type="text"
+            placeholder="Search Tickets"
+            value={str}
+            onChange={handleOnChange}
+          />
+        </InputGroup>
+      </Form.Group>
+    </Form>
   );
 };
 
-SearchForm.propTypes -
-  {
-    handleOnChange: PropTypes.func.isRequired,
-    str: PropTypes.string.isRequired,
-  };
+export default SearchForm;
+
+// SearchForm.propTypes -
+//   {
+//     handleOnChange: PropTypes.func.isRequired,
+//     str: PropTypes.string.isRequired,
+//   };
