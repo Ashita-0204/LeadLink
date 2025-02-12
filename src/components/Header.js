@@ -18,10 +18,18 @@ export default function Header() {
             </li>
             <li>
               <Link
-                to="/tickets/add"
+                to="/list"
                 className="text-lg font-medium hover:text-gray-200 transition-colors"
               >
                 Tickets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/tickets"
+                className="text-lg font-medium hover:text-gray-200 transition-colors"
+              >
+                All Tickets
               </Link>
             </li>
             <li>

@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
 
+// Login Page
+
 export default function Home() {
   return (
     <div>

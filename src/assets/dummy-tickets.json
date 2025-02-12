@@ -3,7 +3,23 @@
       "id": 1,
       "subject": "Login Issue",
       "status": "Open",
-      "addedAt": "2024-02-08"
+      "addedAt": "2025-02-08",
+      "history":[
+        {
+         "date":"2025-01-28",
+         "message": "User reported login issue",
+         "messageBy":"operator"
+        },
+        {
+          "date":"2025-01-28",
+          "message": "User reported login issue",
+          "messageBy":"client"
+         }, {
+          "date":"2025-01-28",
+          "message": "User reported login issue",
+          "messageBy":"operator"
+         }
+      ]
     },
     {
       "id": 2,
