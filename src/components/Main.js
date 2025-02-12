@@ -1,47 +1,51 @@
-import React from "react";
-import { Container, Row, Col, Button, Breadcrumb } from "react-bootstrap";
-import { TicketTable } from "./TicketTable";
-import tickets from "../assets/dummy-tickets.json";
-import { PageBreadcrumb } from "./Breadcrumb";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Row, Button } from "react-bootstrap"; // ✅ Added Button import
+import { PageBreadcrumb } from "../components/Breadcrumb";
+import SearchForm from "../components/SearchForm";
+import { TicketTable } from "../components/TicketTable";
+import tickets from "../assets/dummy-tickets.json"; // ✅ Ensure this file exists and has correct JSON format
 
 export const Main = () => {
+  const [str, setStr] = useState("");
+  const [dispTickets, setdispTickets] = useState(tickets);
+
+  useEffect(() => {}, [str, dispTickets]);
+
+  const handleOnChange = (e) => {
+    const { value } = e.target;
+    setStr(value);
+    searchTicket(value);
+  };
+
+  const searchTicket = (sttr) => {
+    const displayTickets = tickets.filter((row) =>
+      row.subject.toLowerCase().includes(sttr.toLowerCase())
+    );
+
+    setdispTickets(displayTickets);
+  };
+
   return (
     <Container>
       <Row>
         <Col>
-          <PageBreadcrumb page="Main" />
+          <PageBreadcrumb page="Ticket Lists" />
         </Col>
       </Row>
 
-      <Row>
-        <Col className="text-center mt-5 mb-2">
-          <Link to="/tickets/add">
-            <Button
-              variant="info"
-              style={{ fontSize: "2rem ", padding: "10px 30px" }}
-            >
-              Add New Ticket
-            </Button>
-          </Link>
+      <Row className="mt-4">
+        <Col>
+          <Button variant="info">Add New Ticket</Button>
         </Col>
-      </Row>
 
-      <Row>
-        <Col className="text-center mb-2"></Col>
-        <div>Total Tickets:50</div>
-        <div>Pending Tickets:5</div>
-      </Row>
-
-      <Row>
-        <Col className="mt-2"></Col>
-        Recently added tickets
+        <Col className="text-right">
+          <SearchForm handleOnChange={handleOnChange} str={str} />
+        </Col>
       </Row>
       <hr />
-
       <Row>
-        <Col className="recent-ticket">
-          <TicketTable tickets={tickets} />
+        <Col>
+          <TicketTable tickets={dispTickets} />
         </Col>
       </Row>
     </Container>

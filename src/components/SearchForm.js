@@ -1,22 +1,23 @@
 import React from "react";
-import { Form, InputGroup } from "react-bootstrap";
-import { Search } from "react-bootstrap-icons"; // Importing search icon
+import PropTypes from "prop-types";
+import { Col, Form, InputGroup, Row } from "react-bootstrap";
 
 const SearchForm = ({ handleOnChange, str }) => {
+  console.log(str);
   return (
     <Form>
-      <Form.Group>
-        <InputGroup>
-          <InputGroup.Text>
-            <Search />
-          </InputGroup.Text>
+      <Form.Group as={Row}>
+        <Form.Label column sm="2">
+          Search:{" "}
+        </Form.Label>
+        <Col ms="10">
           <Form.Control
-            type="text"
-            placeholder="Search Tickets"
-            value={str}
+            name="searchStr"
             onChange={handleOnChange}
+            value={str}
+            placeholder="Search.."
           />
-        </InputGroup>
+        </Col>
       </Form.Group>
     </Form>
   );
@@ -24,8 +25,7 @@ const SearchForm = ({ handleOnChange, str }) => {
 
 export default SearchForm;
 
-// SearchForm.propTypes -
-//   {
-//     handleOnChange: PropTypes.func.isRequired,
-//     str: PropTypes.string.isRequired,
-//   };
+SearchForm.propTypes = {
+  handleOnChange: PropTypes.func.isRequired,
+  str: PropTypes.string.isRequired,
+};
