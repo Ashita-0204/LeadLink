@@ -32,12 +32,10 @@ const LoginCard = () => {
         return;
       }
 
-      // ✅ Store token in localStorage
       localStorage.setItem("authToken", json.authToken);
       console.log("Auth Token Saved:", localStorage.getItem("authToken"));
 
-      // ✅ Redirect to dashboard after successful login
-      navigate("/dashboard");
+      navigate("/landing");
     } catch (error) {
       console.error("Login Error:", error);
       alert("Something went wrong. Please try again.");

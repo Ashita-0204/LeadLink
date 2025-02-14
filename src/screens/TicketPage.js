@@ -30,30 +30,33 @@ export const TicketPage = () => {
     alert("Form Submitted");
   };
   return (
-    <Container>
+   
+    <Container className="max-w-4xl mx-auto p-6 bg-white shadow-xl rounded-2xl">
       <Row>
         <Col>
           <Breadcrumb page="Ticket" />
         </Col>
       </Row>
-      <Row>
-        <Col className="text-weight-bolder text-secondary">
+      <Row className="flex items-center justify-between mt-4">
+        <Col className="font-bold text-gray-700">
           {Id}
-          <div className="subject"> Subject :{ticket.subject}</div>
-          <div className="date">Date :{ticket.addedAt}</div>
-          <div className="status">Status :{ticket.status}</div>
+          <div className="text-lg font-semibold">Subject: {ticket.subject}</div>
+          <div className="text-sm text-gray-500">Date: {ticket.addedAt}</div>
+          <div className="text-sm text-gray-500">Status: {ticket.status}</div>
         </Col>
         <Col className="text-right">
-          <Button variant="outline-infoll"> Close Ticket</Button>
+          <Button
+            variant="outline-info"
+            className="border border-blue-500 text-blue-500 hover:bg-blue-100"
+          >
+            Close Ticket
+          </Button>
         </Col>
       </Row>
-
-      <Row className="mt-4">
+      <Row className="mt-6">
         <Col>{ticket.history && <MessageHistory msg={ticket.history} />}</Col>
       </Row>
-
-      <hr />
-
+      <hr className="my-6" />
       <Row className="mt-4">
         <Col>
           <Update
