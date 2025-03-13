@@ -1,29 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap"; // ✅ Added Button import
 import { PageBreadcrumb } from "../components/Breadcrumb";
 import SearchForm from "../components/SearchForm";
 import { TicketTable } from "../components/TicketTable";
-import tickets from "../assets/dummy-tickets.json"; // ✅ Ensure this file exists and has correct JSON format
+import { useDispatch } from "react-redux";
+import { fetchAllTickets } from "./TicketAction";
 
 export const Lists = () => {
-  const [str, setStr] = useState("");
-  const [dispTickets, setdispTickets] = useState(tickets);
+  const dispatch = useDispatch();
 
-  useEffect(() => {}, [str, dispTickets]);
-
-  const handleOnChange = (e) => {
-    const { value } = e.target;
-    setStr(value);
-    searchTicket(value);
-  };
-
-  const searchTicket = (sttr) => {
-    const displayTickets = tickets.filter((row) =>
-      row.subject.toLowerCase().includes(sttr.toLowerCase())
-    );
-
-    setdispTickets(displayTickets);
-  };
+  useEffect(() => {
+    dispatch(fetchAllTickets());
+  }, [dispatch]);
 
   return (
     <Container>
@@ -35,13 +23,13 @@ export const Lists = () => {
 
       <Row className="mt-4">
         <Col className="text-right">
-          <SearchForm handleOnChange={handleOnChange} str={str} />
+          <SearchForm />
         </Col>
       </Row>
       <hr />
       <Row>
         <Col>
-          <TicketTable tickets={dispTickets} />
+          <TicketTable />
         </Col>
       </Row>
     </Container>
