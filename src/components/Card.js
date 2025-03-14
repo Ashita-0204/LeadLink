@@ -47,7 +47,7 @@ const LoginCard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 flex items-center justify-center">
+     <div className="min-h-screen flex items-center justify-center bg-[#FEE5D2]">
       <div className="bg-white shadow-2xl rounded-2xl p-10 max-w-sm w-full border border-gray-200 shadow-lg">
         <h2 className="text-3xl font-semibold text-center text-gray-800 mb-8">
           Welcome Back!
